@@ -1,0 +1,54 @@
+<h2 mat-dialog-title>Add</h2>
+<oz-alert *ngIf="error != null" [value]="error"></oz-alert>
+<mat-dialog-content>
+
+    <form [formGroup]="form">
+        <div fxLayout="row">
+            <mat-form-field fxFlex="1 1 100%">
+                <label>
+                    <input autocomplete="off" formControlName="username" matInput placeholder="Username">
+                </label>
+                <mat-error *ngIf="form.controls.username.hasError('required')">required</mat-error>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row">
+            <mat-form-field fxFlex="1 1 100%">
+                <label>
+                    <input autocomplete="off" formControlName="password" matInput placeholder="Password">
+                </label>
+                <mat-error *ngIf="form.controls.password.hasError('required')">required</mat-error>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row">
+            <mat-form-field fxFlex="1 1 100%">
+                <label>
+                    <input autocomplete="off" formControlName="firstName" matInput placeholder="First Name">
+                </label>
+                <mat-error *ngIf="form.controls.firstName.hasError('required')">required</mat-error>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row">
+            <mat-form-field fxFlex="1 1 100%">
+                <label>
+                    <input autocomplete="off" formControlName="lastName" matInput placeholder="Last Name">
+                </label>
+                <mat-error *ngIf="form.controls.lastName.hasError('required')">required</mat-error>
+            </mat-form-field>
+        </div>
+        <div fxLayout="row">
+            <mat-form-field fxFlex="1 1 100%">
+                <mat-select formControlName="admin" placeholder="Admin">
+                    <mat-option [value]="0">User</mat-option>
+                    <mat-option [value]="1">Admin</mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.controls.admin.hasError('required')">required</mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="mat-dialog-actions-end">
+    <button (click)="close()" class="mat-raised-button" type="button">Close</button>
+    <button (click)="save()" [disabled]="working" class="mat-raised-button mat-primary">
+        <span>Add</span>
+    </button>
+</mat-dialog-actions>

@@ -1,0 +1,15 @@
+<div fxLayout="row" fxLayout.lt-md="column wrap" fxLayoutGap="16px" style="padding-bottom: 16px">
+  <div class="oz-card" *ngFor="let item of items" routerLink="{{item.url}}">
+    <div class="body">
+      <span class="title">{{item.title}}</span>
+      <div class="content">
+        <h3><oz-counter [value]="item.value"></oz-counter></h3>
+        <em>
+          <mat-icon *ngIf="!item.loading" class="mat-48">{{item.icon}}</mat-icon>
+        </em>
+        <mat-spinner *ngIf="item.loading" [diameter]="32"></mat-spinner>
+      </div>
+      <span><small style="color: #fff263">{{item.footer}}</small></span>
+    </div>
+  </div>
+</div>

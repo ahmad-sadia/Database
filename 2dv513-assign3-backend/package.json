@@ -1,0 +1,28 @@
+{
+    "name": "backend",
+    "version": "1.0.0",
+    "private": true,
+    "scripts": {
+        "start": "node app",
+        "dev": "standard & nodemon src/app"
+    },
+    "dependencies": {
+        "compression": "^1.7.4",
+        "cookie-parser": "~1.4.4",
+        "csurf": "^1.10.0",
+        "ejs": "^2.7.1",
+        "express": "~4.16.1",
+        "express-validator": "^6.2.0",
+        "helmet": "^3.21.1",
+        "http-errors": "~1.6.3",
+        "jsonwebtoken": "^8.5.1",
+        "morgan": "~1.9.1",
+        "argon2": "^0.25.0",
+        "mysql": "^2.17.1",
+        "winston": "^3.2.1"
+    },
+    "devDependencies": {
+        "nodemon": "^1.19.1",
+        "standard": "^14.3.1"
+    }
+}

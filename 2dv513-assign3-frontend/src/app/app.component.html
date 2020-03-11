@@ -1,0 +1,35 @@
+<app-loader></app-loader>
+<app-watch></app-watch>
+<div class="app">
+  <app-toolbar></app-toolbar>
+  <mat-sidenav-container class="app-sidebar">
+    <mat-sidenav #snav [fixedInViewport]="smallLayout" [mode]="smallLayout ? 'over' : 'side'" fixedTopGap="56"
+      class="app-sidebar-nav" opened>
+      <mat-nav-list>
+        <mat-list-item (click)="navigate('/')">
+          <mat-icon mat-list-icon>dashboard</mat-icon>
+          <h4 mat-line>Dashboard</h4>
+        </mat-list-item>
+        <mat-list-item (click)="navigate('/projects')">
+          <mat-icon mat-list-icon style="color: #c3fdff">apps</mat-icon>
+          <h4 mat-line>Projects</h4>
+        </mat-list-item>
+        <mat-list-item (click)="navigate('/tasks')">
+          <mat-icon class="icon-cog-alt" style="color: #ffc1e3" mat-list-icon>calendar_today</mat-icon>
+          <h4 mat-line>Tasks</h4>
+        </mat-list-item>
+        <mat-list-item (click)="navigate('/users')" *ngIf="authService.isAdmin()">
+          <mat-icon class="icon-cog-alt" style="color: #ce93d8" mat-list-icon>perm_identity</mat-icon>
+          <h4 mat-line>Users</h4>
+        </mat-list-item>
+        <mat-list-item (click)="navigate('/users-online')" *ngIf="authService.isAdmin()">
+          <mat-icon class="icon-cog-alt" style="color: #82e9de" mat-list-icon>perm_identity</mat-icon>
+          <h4 mat-line>Online</h4>
+        </mat-list-item>
+      </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>

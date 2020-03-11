@@ -1,0 +1,10 @@
+<div class="oz-tile">
+    <div class="oz-toolbar">
+        <div>
+            <span class="margin-left">Days Statistic</span>
+            <span class="mat-toolbar-spacer"></span>
+            <p *ngIf="currentLoad" class="margin-right"></p>
+        </div>
+    </div>
+    <div #chart echarts [options]="options" [merge]="updateOptions" [theme]="'dark'"></div>
+</div>

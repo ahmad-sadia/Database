@@ -1,0 +1,9 @@
+:host {
+  width: 100%;
+  z-index: 2;
+  background-color: #1e1e2f;
+}
+
+:host-context(.app-is-mobile) {
+
+}

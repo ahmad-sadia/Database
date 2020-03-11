@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <% include partials/head %>
+</head>
+
+<body>
+  <div class="login-container">
+    <form method="post">
+      <div class="login">
+        <div class="title">
+          Welcome
+        </div>
+        <% if (locals.error) { %>
+        <div class="error"><%= error %></div>
+        <% } %>
+
+        <div class="body">
+          <input name="username" class="input-text" placeholder="Username" autofocus required />
+          <input name="password" class="input-text" type="password" placeholder="Password" required />
+        </div>
+        <div class="footer">
+          <input type="submit" name="" value="Login" id="btnLogin" class="login-button">
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>

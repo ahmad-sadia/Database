@@ -1,0 +1,52 @@
+<div class="oz-container">
+  <div class="mat-table-container">
+    <div class="oz-toolbar">
+      <div>
+        <span class="title">Online users</span>
+        <span class="mat-toolbar-spacer"></span>
+      </div>
+    </div>
+    <mat-table [dataSource]="dataSource" class="mat-table-content">
+      <ng-container matColumnDef="select">
+        <mat-header-cell *matHeaderCellDef class="mat-cell-small">
+          <mat-checkbox (change)="$event ? masterToggle() : null" [checked]="selection.hasValue() && isAllSelected()"
+            [indeterminate]="selection.hasValue() && !isAllSelected()">
+          </mat-checkbox>
+        </mat-header-cell>
+        <mat-cell *matCellDef="let row" class="mat-cell-small">
+          <mat-checkbox (change)="$event ? selection.toggle(row) : null" (click)="$event.stopPropagation()"
+            [checked]="selection.isSelected(row)">
+          </mat-checkbox>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef> #</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+        <mat-cell *matCellDef="let element"><strong><a
+              [routerLink]="element.id">{{element.username}}</a></strong>
+        </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="accessedAt">
+        <mat-header-cell *matHeaderCellDef> Access</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.accessedAt| date:'medium'}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="lastAccess">
+        <mat-header-cell *matHeaderCellDef> Last Access (min)</mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.lastAccess}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+    </mat-table>
+    <mat-paginator (page)="onPageChange($event)" [length]="total" [pageSize]="pageSize" showFirstLastButtons>
+    </mat-paginator>
+  </div>
+</div>

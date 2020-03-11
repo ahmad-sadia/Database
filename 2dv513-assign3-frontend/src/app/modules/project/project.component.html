@@ -1,0 +1,21 @@
+<div class="oz-container">
+  <div class="oz-toolbar">
+    <div>
+      <span class="title">{{project.name}}</span>
+      <span class="mat-toolbar-spacer"></span>
+
+      <button [matMenuTriggerFor]="projectMenu" mat-icon-button>
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #projectMenu="matMenu">
+        <button mat-menu-item (click)="openEditComponent()">
+          <mat-icon>edit</mat-icon>
+          <span>Edit</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+  <div>
+    <app-project-stats [id]="project.id"></app-project-stats>
+  </div>
+</div>

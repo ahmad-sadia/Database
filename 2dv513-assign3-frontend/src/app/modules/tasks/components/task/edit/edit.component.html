@@ -1,0 +1,48 @@
+<h2 mat-dialog-title>Edit</h2>
+<oz-alert *ngIf="error != null" [value]="error"></oz-alert>
+<mat-dialog-content>
+
+    <form [formGroup]="form">
+        <div fxLayout="row">
+            <mat-form-field fxFlex="1 1 100%">
+                <label>
+                    <input autocomplete="off" formControlName="name" matInput placeholder="Name">
+                </label>
+                <mat-error *ngIf="form.controls.name.hasError('required')">required</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row">
+            <mat-form-field fxFlex="1 1 100%">
+                <mat-select formControlName="projectId" placeholder="Project">
+                    <mat-option *ngFor="let project of projects" [value]="project.id">{{project.name}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="form.controls.projectId.hasError('required')">required</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row">
+            <mat-form-field fxFlex="1 1 100%">
+                <label>
+                    <input autocomplete="off" formControlName="hours" matInput placeholder="Hours">
+                </label>
+                <mat-error *ngIf="form.controls.hours.hasError('required')">required</mat-error>
+            </mat-form-field>
+        </div>
+
+        <div fxLayout="row">
+            <mat-form-field fxFlex="1 1 100%">
+                <label>
+                    <textarea autocomplete="off" formControlName="description" matInput placeholder="Description"></textarea>
+                </label>
+                <mat-error *ngIf="form.controls.description.hasError('required')">required</mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="mat-dialog-actions-end">
+    <button (click)="close()" class="mat-raised-button" type="button">Close</button>
+    <button (click)="save()" [disabled]="working" class="mat-raised-button mat-primary">
+        <span>Save</span>
+    </button>
+</mat-dialog-actions>

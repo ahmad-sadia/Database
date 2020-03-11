@@ -1,0 +1,18 @@
+<div class="oz-container">
+  <div class="oz-toolbar">
+    <div>
+      <span class="title">Dashboard</span>
+    </div>
+  </div>
+  <div>
+    <app-dashboard-overview></app-dashboard-overview>
+  </div>
+  <div fxLayout="row" fxLayout.lt-md="column" style="padding-bottom: 16px">
+      <app-dashboard-stats-days fxFlex="50" fxFlex.lt-md="100"></app-dashboard-stats-days>
+      <app-dashboard-stats-months fxFlex="50" fxFlex.lt-md="100"></app-dashboard-stats-months>
+  </div>
+  <div>
+    <app-dashboard-stats-tasks-today></app-dashboard-stats-tasks-today>
+  </div>
+  
+</div>

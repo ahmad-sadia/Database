@@ -1,0 +1,30 @@
+<div >
+  <div class="oz-toolbar">
+    <div>
+      <span>Tasks Today</span>
+      <span class="mat-toolbar-spacer"></span>
+    </div>
+  </div>
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="name">
+      <mat-header-cell *matHeaderCellDef> Name</mat-header-cell>
+      <mat-cell *matCellDef="let element"><strong>{{element.name}}</strong>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="project">
+      <mat-header-cell *matHeaderCellDef> Project</mat-header-cell>
+      <mat-cell *matCellDef="let element"><strong><a style="color: lime"
+            [routerLink]="'/projects/' + element.projectId">{{element.projectName}}</a></strong></mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="hours">
+      <mat-header-cell *matHeaderCellDef> Hours</mat-header-cell>
+      <mat-cell *matCellDef="let element"> {{element.hours }} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+
+  </mat-table>
+</div>
